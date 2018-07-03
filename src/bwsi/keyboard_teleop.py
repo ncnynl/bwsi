@@ -45,9 +45,9 @@ def vels(speed, turn):
 if __name__ == "__main__":
     settings = termios.tcgetattr(sys.stdin)
     pub = rospy.Publisher(
-        '/vesc/ackermann_cmd_mux/input/teleop', AckermannDriveStamped)
+        '/vesc/ackermann_cmd_mux/input/teleop', AckermannDriveStamped, queue_size=15)
     rospy.init_node('keyop')
-
+    print banner
     x = 0
     th = 0
     status = 0
